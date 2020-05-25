@@ -2,15 +2,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from locators import RegisterPageLocators
-
-FORM_TITLE = "Rejestracja"
+from variables import Variables
 
 
 class RegisterPage(BasePage):
     def _verify_page(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located(RegisterPageLocators.FORM))
-        assert FORM_TITLE in self.driver.page_source
+        assert Variables.REGISTER_FORM_TITLE in self.driver.page_source
 
     def enter_email(self, email):
         self.driver.find_element(

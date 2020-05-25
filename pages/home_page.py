@@ -22,6 +22,13 @@ class HomePage(BasePage):
         account_link = WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(HomePageLocators.ACCOUNT_LINK))
         account_link.click()
+
+    def click_register_button(self):
         register_link = WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(HomePageLocators.REGISTER_LINK))
         register_link.click()
+
+    def click_login_button(self):
+        login_link = WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable(HomePageLocators.LOGIN_LINK))
+        login_link.click()
