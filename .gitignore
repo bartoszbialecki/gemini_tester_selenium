@@ -1,0 +1,11 @@
+.DS_Store
+venv
+*.html
+selenium-screenshot*
+output.xml
+*.log
+results
+Documentation*
+.vscode
+*.pdf
+__pycache__
