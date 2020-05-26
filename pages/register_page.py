@@ -30,11 +30,12 @@ class RegisterPage(BasePage):
     def click_register_button(self):
         self.driver.find_element(*RegisterPageLocators.REGISTER_BUTTON).click()
 
-    def is_email_required(self):
+    def email_should_be_required(self):
         email_input = self.driver.find_element(
             *RegisterPageLocators.EMAIL_INPUT)
         value = email_input.get_attribute("required")
-        # valid = self.driver.execute_script(
-        #     "return arguments[0].validity.valid;", email_input)
 
-        return value != None
+        assert value != None
+
+    def error_should_be_visible(self, error):
+        assert error in self.driver.page_source

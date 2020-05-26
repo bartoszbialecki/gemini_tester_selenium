@@ -38,7 +38,7 @@ class LoginTest(BaseTest):
         login_page.enter_password(password)
         login_page.click_login_button()
 
-        login_page.verify_error(error_message)
+        login_page.error_should_be_visible(error_message)
 
     def test_valid_credentials(self):
         login_page = LoginPage(self.driver)
@@ -49,9 +49,9 @@ class LoginTest(BaseTest):
 
         basket_page = BasketPage(self.driver)
 
-        basket_page.check_user_is_logged_in(Variables.VALID_EMAIL)
+        basket_page.user_should_be_logged_in(Variables.VALID_EMAIL)
 
-        basket_page.logout()
+        basket_page.logout_user()
 
 
 if __name__ == "__main__":

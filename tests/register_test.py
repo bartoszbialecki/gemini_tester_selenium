@@ -22,7 +22,8 @@ class RegisterTest(BaseTest):
         register_page.accept_privacy_policy()
         register_page.click_register_button()
 
-        assert Variables.USER_ALREADY_EXISTS_MESSAGE in self.driver.page_source
+        register_page.error_should_be_visible(
+            Variables.USER_ALREADY_EXISTS_MESSAGE)
 
     def test_empty_email(self):
         register_page = RegisterPage(self.driver)
@@ -32,7 +33,7 @@ class RegisterTest(BaseTest):
         register_page.accept_privacy_policy()
         register_page.click_register_button()
 
-        assert register_page.is_email_required() == True
+        register_page.email_should_be_required()
 
     def test_short_password(self):
         register_page = RegisterPage(self.driver)
@@ -43,7 +44,8 @@ class RegisterTest(BaseTest):
         register_page.accept_privacy_policy()
         register_page.click_register_button()
 
-        assert Variables.PASSWORD_TOO_SHORT_MESSAGE in self.driver.page_source
+        register_page.error_should_be_visible(
+            Variables.PASSWORD_TOO_SHORT_MESSAGE)
 
     def test_empty_password(self):
         register_page = RegisterPage(self.driver)
@@ -52,7 +54,8 @@ class RegisterTest(BaseTest):
         register_page.accept_privacy_policy()
         register_page.click_register_button()
 
-        assert Variables.NO_PASSWORD_MESSAGE in self.driver.page_source
+        register_page.error_should_be_visible(
+            Variables.NO_PASSWORD_MESSAGE)
 
     def test_different_passwords(self):
         register_page = RegisterPage(self.driver)
@@ -63,7 +66,8 @@ class RegisterTest(BaseTest):
         register_page.accept_privacy_policy()
         register_page.click_register_button()
 
-        assert Variables.PASSWORD_NOT_MATCH_MESSAGE in self.driver.page_source
+        register_page.error_should_be_visible(
+            Variables.PASSWORD_NOT_MATCH_MESSAGE)
 
     def test_not_checked_privacy_policy(self):
         register_page = RegisterPage(self.driver)
@@ -73,7 +77,8 @@ class RegisterTest(BaseTest):
         register_page.enter_password_confirm(Variables.VALID_PASSWORD)
         register_page.click_register_button()
 
-        assert Variables.ACCEPT_PRIVACY_MESSAGE in self.driver.page_source
+        register_page.error_should_be_visible(
+            Variables.ACCEPT_PRIVACY_MESSAGE)
 
 
 if __name__ == "__main__":

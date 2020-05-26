@@ -22,7 +22,7 @@ class LoginPage(BasePage):
     def click_login_button(self):
         self.driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
-    def verify_error(self, error):
+    def error_should_be_visible(self, error):
         tooltip = WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located(LoginPageLocators.ERROR_TOOLTIP))
         message = tooltip.get_attribute(

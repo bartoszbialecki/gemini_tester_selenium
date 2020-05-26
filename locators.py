@@ -9,6 +9,15 @@ class HomePageLocators():
     REGISTER_LINK = (By.XPATH, '//a[@href="/user/createAccount"]')
     LOGIN_LINK = (By.XPATH, '//a[contains(text(), "Zaloguj się")]')
 
+    ADD_PRODUCT_TO_BASKET_BUTTON = (
+        By.CLASS_NAME, 'st_button-basket-submit-enabled')
+    HEADER_BASKET_QUANTITY = (
+        By.XPATH, '//div[@id="basket_show"]/small[@class="quantity"]')
+    BASKET_BUTTON = (By.XPATH, '//*[@class="basket-button"]')
+    LOGIN_SUGGESTION_DIALOG = (By.ID, 'login-suggestion')
+    PRODUCTS = (
+        By.XPATH, '//div[contains(@class, "product_scroller")]//div[contains(@class, "item")]')
+
 
 class RegisterPageLocators():
     FORM = (By.ID, 'user-register-form')
@@ -35,3 +44,7 @@ class BasketPageLocators():
     LOGOUT_LINK = (
         By.XPATH, '//div[@class="reg"]/a[@href="https://www.aptekagemini.pl/user/logoutUser"]')
     LOGOUT_FORM = (By.ID, 'logout_form')
+    BASKET_PRODUCT_QUANTITY_INPUT = (
+        By.XPATH, '//td[@class="st_basket-product-num"]//input[@class="quantity"]')
+    BASKET_FIRST_STEP_TOTAL_PRICE = (
+        By.CLASS_NAME, 'st_delivery-basket_summaty-amount')
